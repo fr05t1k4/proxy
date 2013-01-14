@@ -2,22 +2,22 @@
 -- version 3.5.5
 -- http://www.phpmyadmin.net
 --
--- Хост: 127.0.0.1:3306
--- Время создания: Янв 14 2013 г., 20:17
--- Версия сервера: 5.1.67-community-log
--- Версия PHP: 5.2.17
+-- РҐРѕСЃС‚: 127.0.0.1:3306
+-- Р’СЂРµРјСЏ СЃРѕР·РґР°РЅРёСЏ: РЇРЅРІ 14 2013 Рі., 20:17
+-- Р’РµСЂСЃРёСЏ СЃРµСЂРІРµСЂР°: 5.1.67-community-log
+-- Р’РµСЂСЃРёСЏ PHP: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 --
--- База данных: `proxy`
+-- Р‘Р°Р·Р° РґР°РЅРЅС‹С…: `proxy`
 --
 
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `groups`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `groups`
 --
 
 CREATE TABLE IF NOT EXISTS `groups` (
@@ -28,7 +28,7 @@ CREATE TABLE IF NOT EXISTS `groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=3 ;
 
 --
--- Дамп данных таблицы `groups`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `groups`
 --
 
 INSERT INTO `groups` (`id`, `name`, `description`) VALUES
@@ -38,7 +38,7 @@ INSERT INTO `groups` (`id`, `name`, `description`) VALUES
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `login_attempts`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `login_attempts`
 --
 
 CREATE TABLE IF NOT EXISTS `login_attempts` (
@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `login_attempts` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `proxy`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `proxy`
 --
 
 CREATE TABLE IF NOT EXISTS `proxy` (
@@ -67,7 +67,7 @@ CREATE TABLE IF NOT EXISTS `proxy` (
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `users`
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
@@ -88,7 +88,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=26 ;
 
 --
--- Дамп данных таблицы `users`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `users`
 --
 
 INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`, `activation_code`, `forgotten_password_code`, `forgotten_password_time`, `remember_code`, `created_on`, `last_login`, `active`) VALUES
@@ -120,7 +120,7 @@ INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`
 -- --------------------------------------------------------
 
 --
--- Структура таблицы `users_groups`
+-- РЎС‚СЂСѓРєС‚СѓСЂР° С‚Р°Р±Р»РёС†С‹ `users_groups`
 --
 
 CREATE TABLE IF NOT EXISTS `users_groups` (
@@ -131,7 +131,7 @@ CREATE TABLE IF NOT EXISTS `users_groups` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=27 ;
 
 --
--- Дамп данных таблицы `users_groups`
+-- Р”Р°РјРї РґР°РЅРЅС‹С… С‚Р°Р±Р»РёС†С‹ `users_groups`
 --
 
 INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
