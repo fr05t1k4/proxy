@@ -37,6 +37,9 @@
 | in the URL cannot be matched to a valid route.
 |
 */
+$route['(tariff|contacts)'] = 'pages/$1';
+$route['(forgot_password|login)'] = 'auth/$1';
+$route['register'] = 'auth/create_user';
 
 $route['default_controller'] = "proxy";
 $route['404_override'] = '';
