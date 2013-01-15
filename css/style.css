@@ -1,6 +1,9 @@
 body {
     background: url(/img/blackorchid.png);
 }
+textarea{
+    color: #52575c;
+}
 .navbar-static-top {
     margin-bottom: 20px;
 }
