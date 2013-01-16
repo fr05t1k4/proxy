@@ -97,7 +97,7 @@
                                     <li><a href="<?php echo base_url('adminitration'); ?>">Администрирование</a></li>
                                 <?php endif; ?>
                                 <li><a href="<?php echo base_url('tariff'); ?>">Тарифы</a></li>
-                                <li><a href="<?php echo base_url('question/ask_question'); ?>">Обратная связь</a></li>
+                                <li><a href="<?php echo base_url('question/question_history'); ?>">Обратная связь <?php echo ($this->header_model->get_unread_messages() == 0) ? '' : '(' . $this->header_model->get_unread_messages() . ')' ?></a></li>
                                 <li><a href="<?php echo base_url('auth/change_password'); ?>">Сменить пароль</a></li>
                                 <li><a href="<?php echo base_url('auth/logout'); ?>">Выйти</a></li>
                             </ul>

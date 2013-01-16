@@ -10,9 +10,6 @@ Class Question_model extends CI_Model {
 
     function create_question($topic, $id = NULL) {
 
-        if (!$this->ion_auth->logged_in())
-            redirect('error');
-
         $data = array(
             'topic' => $topic,
             'date' => date('Y-m-d H:i:s', time()),
@@ -23,30 +20,34 @@ Class Question_model extends CI_Model {
         return $this->db->insert_id();
     }
 
-    function create_message($message, $id, $our = 0) {
+    function create_message($message, $question_id, $our = 0) {
 
-        if (!$this->ion_auth->logged_in())
-            redirect('error');
-        
         $data = array(
             'message' => $message,
-            'question_id' => $id,
+            'question_id' => $question_id,
             'date' => date('Y-m-d H:i:s', time()),
-            'our' => $our
+            'our' => ($this->ion_auth->is_admin()) ? 1 : 0
         );
 
 
         return ($this->db->insert('messages', $data)) ? TRUE : FALSE;
     }
-    
-    function get_question(){
-        
-        $user_id = $this->ion_auth->user()->row()->id;
-        $topics =$this->db->get_where('questions', array('user_id'=> $user_id))->result();
-       
+
+    function get_question() {
+        if ($this->ion_auth->is_admin())
+            $topics = $this->db->order_by('closed')->order_by('id','DESC')->get_where('questions')->result();
+        else {
+            $user_id = $this->ion_auth->user()->row()->id;
+            $topics = $this->db->order_by('id','DESC')->get_where('questions', array('user_id' => $user_id))->result();
+        }
+
         return $topics;
     }
 
-}
+    function get_messages($qid) {
 
-?>
+        $messages = $this->db->get_where('messages', array('question_id' => $qid))->result();
+        return $messages;
+    }
+
+}
