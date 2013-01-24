@@ -282,7 +282,24 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (13, 34, 2),
 (14, 35, 2),
 (15, 36, 1);
+CREATE TABLE `operations` (
+    `id` int(11) NOT NULL auto_increment,
+    `sum` decimal default NULL,
+    `user_id` int(11) default NULL,
+    `status` int(11) default 0,
+    `type` varchar(64) default NULL,
+    `comment` varchar(255) default NULL,
+    `description` varchar(255) default NULL,
+    `date` datetime default NULL,
+    PRIMARY KEY  (`id`)
+  ) DEFAULT CHARSET=utf8;
 
+  CREATE TABLE `balances` (
+    `id` int(11) NOT NULL,
+    `sum` decimal default NULL,
+    `date` datetime default NULL,
+    PRIMARY KEY  (`id`)
+  ) DEFAULT CHARSET=utf8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

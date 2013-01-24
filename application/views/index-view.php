@@ -1,20 +1,22 @@
 <div class="container" id="container">
     <div class="hero-unit">
-        <h1>Best-Proxy</h1>
-        <p>Лучшие прокси по всему миру</p><br>
+        <h1>Ай да прокси!</h1>
+        <p>
+            <?php $slogan = array('быстрые','анонимные','дешевые','качественные','живые','сукин сын') ;
+                    $id = rand(0, count($slogan)-1);
+                    ?>
+            Ай да <?php echo $slogan[$id] ?>!
+        </p><br>
         <br>
         <p>
             <a class="btn btn-warning btn-large" class="span3">
                 Купить на день
             </a>
-            <a class="btn btn-warning btn-large" class="span3">
+            <a class="btn btn-danger btn-large" class="span3">
                 Купить на неделю
             </a>
             <a class="btn  btn-warning btn-large" class="span3">
                 Купить на месяц
-            </a>
-            <a class="btn btn-danger btn-large" class="span3">
-                Купить на пол года
             </a>
         </p>
     </div>

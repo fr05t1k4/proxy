@@ -21,10 +21,10 @@ class Proxy_model extends CI_Model {
             return true;
     }
 
-    function insert_tariff($tarif_info) {
+    function insert_tariff($tariff) {
         
-        $days_proxy = $tarif_info->days_proxy;
-        $price_proxy = $tarif_info->price_proxy;
+        $days_proxy = $tariff->period;
+        $price_proxy = $tariff->price;
         $day = 24 * 3600;
         $data = array(
             'proxy_count' => $tarif_info->count_proxy,
