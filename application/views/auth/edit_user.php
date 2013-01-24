@@ -1,41 +1,26 @@
-<h1>Edit User</h1>
-<p>Please enter the users information below.</p>
+<div class="container" id="container">
+    <h1>Редактирование пароля пользователя</h1>
+    <p>Пожалуйста введите новый пароль</p>
 
-<div id="infoMessage"><?php echo $message;?></div>
+    <div id="infoMessage"><?php echo $message; ?></div>
 
-<?php echo form_open(current_url());?>
+    <?php echo form_open(current_url(), 'class="form-horizontal"'); ?>
 
-      <p>
-            First Name: <br />
-            <?php echo form_input($first_name);?>
-      </p>
+    <div class="control-group">
+        <label class="control-label">Пароль</label>
+        <div class="controls"><?php echo form_input($password); ?></div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Подтвердите пароль</label>
+        <div class="controls"><?php echo form_input($password_confirm); ?></div>
+    </div>
 
-      <p>
-            Last Name: <br />
-            <?php echo form_input($last_name);?>
-      </p>
+    <?php echo form_hidden('id', $user->id); ?>
+    <?php echo form_hidden($csrf); ?>
 
-      <p>
-            Company Name: <br />
-            <?php echo form_input($company);?>
-      </p>
+    <div class="form-actions">
+        <?php echo form_submit('submit', 'Сохранить', 'class="btn"'); ?><a href="<?= base_url('auth') ?>" class="btn">Назад</a>
+    </div>
 
-      
-
-      <p>
-            Password: (if changing password)<br />
-            <?php echo form_input($password);?>
-      </p>
-
-      <p>
-            Confirm Password: (if changing password)<br />
-            <?php echo form_input($password_confirm);?>
-      </p>
-
-
-      <?php echo form_hidden('id', $user->id);?>
-      <?php echo form_hidden($csrf); ?>
-
-      <p><?php echo form_submit('submit', 'Save User');?></p>
-
-<?php echo form_close();?>
+    <?php echo form_close(); ?>
+</div>

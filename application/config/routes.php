@@ -40,8 +40,9 @@
 $route['(tariff|contacts)'] = 'pages/$1';
 $route['(forgot_password|login)'] = 'auth/$1';
 $route['register'] = 'auth/create_user';
+$route['adminitration'] = 'auth';
 
-$route['default_controller'] = "proxy";
+$route['default_controller'] = "home";
 $route['404_override'] = '';
 
 

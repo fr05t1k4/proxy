@@ -1,7 +1,7 @@
 <div class="container" id="container">
     <h1>Тарифы</h1>
     <small>Выберите желаемый тариф.</small>
-    <?php echo form_open(); ?>
+    <?php echo form_open('proxy/get_proxy'); ?>
     <table class="table table-striped">
         <tr>
             <td></td>

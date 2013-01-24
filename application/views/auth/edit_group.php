@@ -1,20 +1,21 @@
-<h1>Edit Group</h1>
-<p>Please enter the group information below.</p>
+<div class="container" id="container">    
+    <h1>Редактирование группы</h1>
+    <p>Пожалуйста введите информацию о группе.</p>
 
-<div id="infoMessage"><?php echo $message;?></div>
+    <div id="infoMessage"><?php echo $message; ?></div>
 
-<?php echo form_open(current_url());?>
+    <?php echo form_open(current_url(), 'class="form-horizontal"'); ?>
+    <div class="control-group">
+        <label class="control-label">Имя группы</label>
+        <div class="controls"><?php echo form_input($group_name); ?></div>
+    </div>
+    <div class="control-group">
+        <label class="control-label">Описание группы</label>
+        <div class="controls"><?php echo form_input($group_description); ?></div>
+    </div>
+    <div class="form-actions">
+        <?php echo form_submit('submit', 'Сохранить группу', 'class="btn"'); ?><a href="<?= base_url('auth') ?>" class="btn">Назад</a>
+    </div>
 
-      <p>
-            Group Name: <br />
-            <?php echo form_input($group_name);?>
-      </p>
-
-      <p>
-            Group Description: <br />
-            <?php echo form_input($group_description);?>
-      </p>
-
-      <p><?php echo form_submit('submit', 'Save Group');?></p>
-
-<?php echo form_close();?>
+    <?php echo form_close(); ?>
+</div>

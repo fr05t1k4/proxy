@@ -370,8 +370,9 @@ class Auth extends CI_Controller {
 			// insert csrf check
 			$this->data['csrf'] = $this->_get_csrf_nonce();
 			$this->data['user'] = $this->ion_auth->user($id)->row();
-
+                        $this->load->view('header-view');
 			$this->load->view('auth/deactivate_user', $this->data);
+                        $this->load->view('footer-view');
 		}
 		else
 		{
@@ -530,42 +531,6 @@ class Auth extends CI_Controller {
 		//pass the user to the view
 		$this->data['user'] = $user;
 
-		$this->data['first_name'] = array(
-			'name'  => 'first_name',
-			'id'    => 'first_name',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('first_name', $user->first_name),
-		);
-		$this->data['last_name'] = array(
-			'name'  => 'last_name',
-			'id'    => 'last_name',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('last_name', $user->last_name),
-		);
-		$this->data['company'] = array(
-			'name'  => 'company',
-			'id'    => 'company',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('company', $user->company),
-		);
-		$this->data['phone1'] = array(
-			'name'  => 'phone1',
-			'id'    => 'phone1',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('phone1', $user->phone[0]),
-		);
-		$this->data['phone2'] = array(
-			'name'  => 'phone2',
-			'id'    => 'phone2',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('phone2', $user->phone[1]),
-		);
-		$this->data['phone3'] = array(
-			'name'  => 'phone3',
-			'id'    => 'phone3',
-			'type'  => 'text',
-			'value' => $this->form_validation->set_value('phone3', $user->phone[2]),
-		);
 		$this->data['password'] = array(
 			'name' => 'password',
 			'id'   => 'password',
@@ -576,8 +541,9 @@ class Auth extends CI_Controller {
 			'id'   => 'password_confirm',
 			'type' => 'password'
 		);
-
+                $this->load->view('header-view');
 		$this->load->view('auth/edit_user', $this->data);
+                $this->load->view('footer-view');
 	}
 
 	// create a new group
@@ -623,8 +589,9 @@ class Auth extends CI_Controller {
 				'type'  => 'text',
 				'value' => $this->form_validation->set_value('description'),
 			);
-
+                        $this->load->view('header-view');
 			$this->load->view('auth/create_group', $this->data);
+                        $this->load->view('footer-view');
 		}
 	}
 
@@ -686,8 +653,9 @@ class Auth extends CI_Controller {
 			'type'  => 'text',
 			'value' => $this->form_validation->set_value('group_description', $group->description),
 		);
-
+                $this->load->view('header-view');
 		$this->load->view('auth/edit_group', $this->data);
+                $this->load->view('footer-view');
 	}
 
 
