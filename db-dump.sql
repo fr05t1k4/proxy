@@ -3,9 +3,9 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 24 2013 г., 19:27
+-- Время создания: Янв 25 2013 г., 18:31
 -- Версия сервера: 5.1.67-community-log
--- Версия PHP: 5.3.20
+-- Версия PHP: 5.2.17
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -97,6 +97,31 @@ INSERT INTO `messages` (`id`, `message`, `date`, `question_id`, `our`, `user_rea
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `operations`
+--
+
+CREATE TABLE IF NOT EXISTS `operations` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `sum` decimal(10,0) DEFAULT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `status` int(11) DEFAULT '0',
+  `type` varchar(64) DEFAULT NULL,
+  `comment` varchar(255) DEFAULT NULL,
+  `description` varchar(255) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+
+--
+-- Дамп данных таблицы `operations`
+--
+
+INSERT INTO `operations` (`id`, `sum`, `order_id`, `status`, `type`, `comment`, `description`, `date`) VALUES
+(9, '25', 13, 0, 'Внешняя', 'Оплата', 'Через систему onpay', '2013-01-25 19:17:22');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `orders`
 --
 
@@ -104,17 +129,18 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `id` int(5) NOT NULL AUTO_INCREMENT,
   `tariff_id` int(6) NOT NULL,
   `user_id` int(5) NOT NULL,
-  `begin_date` datetime NOT NULL,
-  `end_date` datetime NOT NULL,
+  `begin_date` datetime DEFAULT NULL,
+  `end_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
 
 --
 -- Дамп данных таблицы `orders`
 --
 
 INSERT INTO `orders` (`id`, `tariff_id`, `user_id`, `begin_date`, `end_date`) VALUES
-(1, 0, 3, '2013-01-20 21:29:17', '2013-01-21 21:29:17');
+(3, 1, 36, '2013-01-25 02:37:46', '2013-01-26 02:37:46'),
+(13, 6, 36, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -248,7 +274,7 @@ INSERT INTO `users` (`id`, `ip_address`, `username`, `password`, `salt`, `email`
 (33, '0', '', '71f40a48a81e40caa05e70e5746f78c41e7573dc', NULL, 'fr05t1k412@gmail.com', 'df4eb127782c42eeb5779bd2ca5eadd66d949c0a', NULL, NULL, NULL, 1358273409, 1358273409, 0),
 (34, '0', '', '4e12d7a4e91a04dd77ccb666c140e6cf31e4f1a4', NULL, 'fr05t1k4124@gmail.com', NULL, NULL, NULL, NULL, 1358273445, 1358273445, 1),
 (35, '\0\0', '', '8ed067ff6ec4f2f211998a099ec364c0ae819f02', NULL, 'alex_uralsk142@mail.ru', '98b747aaf5e7ab46da4fbc4f47539260988eaa5b', NULL, NULL, NULL, 1358273600, 1358273600, 0),
-(36, '\0\0', '', 'efc8b92169bc2762a0db165d3fba2aac9c44606d', NULL, 'alex_uralsk14@mail.ru', NULL, NULL, NULL, '82d31f72d17a17140d4e44e0cef2c6442df950f1', 1358286111, 1358693821, 1);
+(36, '\0\0', '', 'efc8b92169bc2762a0db165d3fba2aac9c44606d', NULL, 'alex_uralsk14@mail.ru', NULL, NULL, NULL, '82d31f72d17a17140d4e44e0cef2c6442df950f1', 1358286111, 1359122317, 1);
 
 -- --------------------------------------------------------
 
@@ -282,24 +308,7 @@ INSERT INTO `users_groups` (`id`, `user_id`, `group_id`) VALUES
 (13, 34, 2),
 (14, 35, 2),
 (15, 36, 1);
-CREATE TABLE `operations` (
-    `id` int(11) NOT NULL auto_increment,
-    `sum` decimal default NULL,
-    `user_id` int(11) default NULL,
-    `status` int(11) default 0,
-    `type` varchar(64) default NULL,
-    `comment` varchar(255) default NULL,
-    `description` varchar(255) default NULL,
-    `date` datetime default NULL,
-    PRIMARY KEY  (`id`)
-  ) DEFAULT CHARSET=utf8;
 
-  CREATE TABLE `balances` (
-    `id` int(11) NOT NULL,
-    `sum` decimal default NULL,
-    `date` datetime default NULL,
-    PRIMARY KEY  (`id`)
-  ) DEFAULT CHARSET=utf8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
