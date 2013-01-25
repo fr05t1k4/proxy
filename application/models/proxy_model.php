@@ -31,21 +31,11 @@ class Proxy_model extends CI_Model {
         }
     }
 
-    function insert_order($tariff) {
+    function update_proxy($data) {
 
-        if ($this->check_data($tariff->count)) {
-            $day = 24 * 3600;
-            $days_proxy = $tariff->period;
-            $data = array(
-                'tariff_id' => $tariff->id,
-                'user_id' => $this->ion_auth->user()->row()->id,
-                'begin_date' => date('Y-m-d H:i:s', time()),
-                'end_date' => date('Y-m-d H:i:s', time() + $days_proxy * $day),
-            );
-            $this->db->insert('orders', $data);
-            $order_id = $this->db->insert_id();
-
-            $this->db->limit($tariff->count)->update('proxy', array('order_id' => $order_id));
+        if (!empty($data)) {
+                      
+           $this->db->limit($data['count'])->update('proxy', array('order_id' => $data['order_id']));
 
             return true;
         } else {

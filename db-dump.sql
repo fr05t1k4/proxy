@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Янв 25 2013 г., 18:31
+-- Время создания: Янв 25 2013 г., 22:01
 -- Версия сервера: 5.1.67-community-log
 -- Версия PHP: 5.2.17
 
@@ -110,14 +110,15 @@ CREATE TABLE IF NOT EXISTS `operations` (
   `description` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
 
 --
 -- Дамп данных таблицы `operations`
 --
 
 INSERT INTO `operations` (`id`, `sum`, `order_id`, `status`, `type`, `comment`, `description`, `date`) VALUES
-(9, '25', 13, 0, 'Внешняя', 'Оплата', 'Через систему onpay', '2013-01-25 19:17:22');
+(9, '25', 13, 1, 'Внешняя', 'Оплата', 'Через систему onpay', '2006-03-24 19:00:00'),
+(10, '50', 14, 1, 'Внешняя', 'Оплата', 'Через систему onpay', '2006-03-24 19:00:00');
 
 -- --------------------------------------------------------
 
@@ -132,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `orders` (
   `begin_date` datetime DEFAULT NULL,
   `end_date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=14 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=15 ;
 
 --
 -- Дамп данных таблицы `orders`
@@ -140,7 +141,8 @@ CREATE TABLE IF NOT EXISTS `orders` (
 
 INSERT INTO `orders` (`id`, `tariff_id`, `user_id`, `begin_date`, `end_date`) VALUES
 (3, 1, 36, '2013-01-25 02:37:46', '2013-01-26 02:37:46'),
-(13, 6, 36, NULL, NULL);
+(13, 6, 36, '2013-01-25 21:17:21', '2013-02-01 21:17:21'),
+(14, 7, 36, '2013-01-25 21:50:37', '2013-02-01 21:50:37');
 
 -- --------------------------------------------------------
 
@@ -155,23 +157,148 @@ CREATE TABLE IF NOT EXISTS `proxy` (
   `speed` double NOT NULL DEFAULT '0',
   `country` varchar(255) NOT NULL DEFAULT 'N/A',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=136 ;
 
 --
 -- Дамп данных таблицы `proxy`
 --
 
 INSERT INTO `proxy` (`id`, `address`, `order_id`, `speed`, `country`) VALUES
-(1, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
-(2, 'gdgdg', 0, 2445, 'аупуп'),
-(3, 'egegeg', 0, 55, 'vcvdv'),
-(4, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
-(5, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
-(6, 'sfds3ss', 0, 332, 'sdfsdf'),
-(7, 'dfsfdsf', 0, 333, 'dsq'),
-(8, 'qwqyyy', 0, 352, 'qrqrss'),
-(9, 'eghhh', 0, 22, 'qewesx'),
-(10, 'jhjghngn', 0, 245, 'dsgsdg');
+(1, 'dsgsdgsdgsdgsdg', 14, 24, 'brebeb'),
+(2, 'gdgdg', 14, 2445, 'аупуп'),
+(3, 'egegeg', 14, 55, 'vcvdv'),
+(4, 'dfsfsfs', 14, 53535, 'gdsgdsgsdg'),
+(5, 'dgsdgsdgdg', 14, 35353, 'fdsfsdf'),
+(6, 'sfds3ss', 14, 332, 'sdfsdf'),
+(7, 'dfsfdsf', 14, 333, 'dsq'),
+(8, 'qwqyyy', 14, 352, 'qrqrss'),
+(9, 'eghhh', 14, 22, 'qewesx'),
+(10, 'jhjghngn', 14, 245, 'dsgsdg'),
+(11, 'dsgsdgsdgsdgsdg', 14, 24, 'brebeb'),
+(12, 'gdgdg', 14, 2445, 'аупуп'),
+(13, 'egegeg', 14, 55, 'vcvdv'),
+(14, 'dfsfsfs', 14, 53535, 'gdsgdsgsdg'),
+(15, 'dgsdgsdgdg', 14, 35353, 'fdsfsdf'),
+(16, 'sfds3ss', 14, 332, 'sdfsdf'),
+(17, 'dfsfdsf', 14, 333, 'dsq'),
+(18, 'qwqyyy', 14, 352, 'qrqrss'),
+(19, 'eghhh', 14, 22, 'qewesx'),
+(20, 'dsgsdgsdgsdgsdg', 14, 24, 'brebeb'),
+(21, 'gdgdg', 14, 2445, 'аупуп'),
+(22, 'egegeg', 14, 55, 'vcvdv'),
+(23, 'dfsfsfs', 14, 53535, 'gdsgdsgsdg'),
+(24, 'dgsdgsdgdg', 14, 35353, 'fdsfsdf'),
+(25, 'sfds3ss', 14, 332, 'sdfsdf'),
+(26, 'dfsfdsf', 0, 333, 'dsq'),
+(27, 'qwqyyy', 0, 352, 'qrqrss'),
+(28, 'eghhh', 0, 22, 'qewesx'),
+(29, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(30, 'gdgdg', 0, 2445, 'аупуп'),
+(31, 'egegeg', 0, 55, 'vcvdv'),
+(32, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(33, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(34, 'sfds3ss', 0, 332, 'sdfsdf'),
+(35, 'dfsfdsf', 0, 333, 'dsq'),
+(36, 'qwqyyy', 0, 352, 'qrqrss'),
+(37, 'eghhh', 0, 22, 'qewesx'),
+(38, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(39, 'gdgdg', 0, 2445, 'аупуп'),
+(40, 'egegeg', 0, 55, 'vcvdv'),
+(41, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(42, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(43, 'sfds3ss', 0, 332, 'sdfsdf'),
+(44, 'dfsfdsf', 0, 333, 'dsq'),
+(45, 'qwqyyy', 0, 352, 'qrqrss'),
+(46, 'eghhh', 0, 22, 'qewesx'),
+(47, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(48, 'gdgdg', 0, 2445, 'аупуп'),
+(49, 'egegeg', 0, 55, 'vcvdv'),
+(50, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(51, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(52, 'sfds3ss', 0, 332, 'sdfsdf'),
+(53, 'dfsfdsf', 0, 333, 'dsq'),
+(54, 'qwqyyy', 0, 352, 'qrqrss'),
+(55, 'eghhh', 0, 22, 'qewesx'),
+(56, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(57, 'gdgdg', 0, 2445, 'аупуп'),
+(58, 'egegeg', 0, 55, 'vcvdv'),
+(59, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(60, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(61, 'sfds3ss', 0, 332, 'sdfsdf'),
+(62, 'gdgdg', 0, 2445, 'аупуп'),
+(63, 'egegeg', 0, 55, 'vcvdv'),
+(64, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(65, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(66, 'sfds3ss', 0, 332, 'sdfsdf'),
+(67, 'dfsfdsf', 0, 333, 'dsq'),
+(68, 'qwqyyy', 0, 352, 'qrqrss'),
+(69, 'eghhh', 0, 22, 'qewesx'),
+(70, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(71, 'gdgdg', 0, 2445, 'аупуп'),
+(72, 'egegeg', 0, 55, 'vcvdv'),
+(73, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(74, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(75, 'sfds3ss', 0, 332, 'sdfsdf'),
+(76, 'gdgdg', 0, 2445, 'аупуп'),
+(77, 'egegeg', 0, 55, 'vcvdv'),
+(78, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(79, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(80, 'sfds3ss', 0, 332, 'sdfsdf'),
+(81, 'dfsfdsf', 0, 333, 'dsq'),
+(82, 'qwqyyy', 0, 352, 'qrqrss'),
+(83, 'eghhh', 0, 22, 'qewesx'),
+(84, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(85, 'gdgdg', 0, 2445, 'аупуп'),
+(86, 'egegeg', 0, 55, 'vcvdv'),
+(87, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(88, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(89, 'sfds3ss', 0, 332, 'sdfsdf'),
+(90, 'gdgdg', 0, 2445, 'аупуп'),
+(91, 'egegeg', 0, 55, 'vcvdv'),
+(92, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(93, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(94, 'sfds3ss', 0, 332, 'sdfsdf'),
+(95, 'dfsfdsf', 0, 333, 'dsq'),
+(96, 'qwqyyy', 0, 352, 'qrqrss'),
+(97, 'eghhh', 0, 22, 'qewesx'),
+(98, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(99, 'gdgdg', 0, 2445, 'аупуп'),
+(100, 'egegeg', 0, 55, 'vcvdv'),
+(101, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(102, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(103, 'sfds3ss', 0, 332, 'sdfsdf'),
+(104, 'gdgdg', 0, 2445, 'аупуп'),
+(105, 'egegeg', 0, 55, 'vcvdv'),
+(106, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(107, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(108, 'sfds3ss', 0, 332, 'sdfsdf'),
+(109, 'dfsfdsf', 0, 333, 'dsq'),
+(110, 'qwqyyy', 0, 352, 'qrqrss'),
+(111, 'eghhh', 0, 22, 'qewesx'),
+(112, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(113, 'gdgdg', 0, 2445, 'аупуп'),
+(114, 'egegeg', 0, 55, 'vcvdv'),
+(115, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(116, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(117, 'sfds3ss', 0, 332, 'sdfsdf'),
+(118, 'gdgdg', 0, 2445, 'аупуп'),
+(119, 'egegeg', 0, 55, 'vcvdv'),
+(120, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(121, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(122, 'sfds3ss', 0, 332, 'sdfsdf'),
+(123, 'dfsfdsf', 0, 333, 'dsq'),
+(124, 'qwqyyy', 0, 352, 'qrqrss'),
+(125, 'eghhh', 0, 22, 'qewesx'),
+(126, 'dsgsdgsdgsdgsdg', 0, 24, 'brebeb'),
+(127, 'gdgdg', 0, 2445, 'аупуп'),
+(128, 'egegeg', 0, 55, 'vcvdv'),
+(129, 'dfsfsfs', 0, 53535, 'gdsgdsgsdg'),
+(130, 'dgsdgsdgdg', 0, 35353, 'fdsfsdf'),
+(131, 'sfds3ss', 0, 332, 'sdfsdf'),
+(132, 'dfsfdsf', 0, 333, 'dsq'),
+(133, 'qwqyyy', 0, 352, 'qrqrss'),
+(134, 'eghhh', 0, 22, 'qewesx'),
+(135, 'jhjghngn', 0, 245, 'dsgsdg');
 
 -- --------------------------------------------------------
 

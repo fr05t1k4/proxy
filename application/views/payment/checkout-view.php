@@ -16,7 +16,7 @@
         <?php echo form_hidden('pay_mode', 'fix') ?>
         <?php echo form_hidden('pay_for', $order->id) ?>
         <?php echo form_hidden('user_email', $this->ion_auth->user()->row()->email) ?>
-        <?php $res = strtoupper(md5("fix;" .  number_format($operation->sum, 1, '.', '') . ";TST;" . $order->id . ";yes;rcVAYxkqJ7A")); ?>
+        <?php $res = strtoupper(md5("fix;" .  number_format($operation->sum, 1, '.', '') . ";TST;" . $order->id . ";yes;". SECRET_KEY_API)); ?>
         <?php echo form_hidden('md5', $res) ?>
         <input type="submit" class="btn" value="оплатить" />
         <?php echo form_close() ?>

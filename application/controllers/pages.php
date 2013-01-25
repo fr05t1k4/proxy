@@ -71,13 +71,5 @@ class Pages extends CI_Controller {
         $this->load->view($view, $data);
         $this->load->view('footer-view');
     }
-    
-    public function pay() {
-        
-    }
-    
-    public function check() {
-        
-    }
 
 }
