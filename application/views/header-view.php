@@ -27,7 +27,7 @@
             <div class="navbar-inner  ">
                 <div class="container">
 
-                    <a class="brand" href="<?php echo base_url(); ?>">Proxy</a>
+                    <a class="brand" href="<?php echo base_url(); ?>">Ай да прокси</a>
                     <ul class="nav">
                         <li class="active"><a href="<?php echo base_url(); ?>">Главная</a></li>
                         <li><a href="<?php echo base_url('tariff') ?>">Тарифы</a></li>

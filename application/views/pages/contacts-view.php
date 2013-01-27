@@ -1,1 +1,5 @@
-<p>Наши контакты: <?php echo $phone ?> <?php echo $address ?> <?php echo $icq ?></p>
+
+<div class="container" id="container">
+
+    <p>Наши контакты: </p>
+</div>
